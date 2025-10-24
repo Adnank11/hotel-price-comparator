@@ -1,0 +1,266 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Header & Global */
+header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+#results h2 {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+/* Cards & Forms */
+.card {
+    border: none;
+    border-radius: 15px;
+}
+
+.animate-fade-in {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s, transform 0.2s;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    transform: scale(1.02); /* Subtle zoom */
+}
+
+#city::placeholder {
+    transition: color 0.3s;
+}
+
+#city:focus::placeholder {
+    color: #007bff;
+    text-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Glowing placeholder */
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    position: relative; /* For shine */
+    overflow: hidden;
+    animation: pulse 2s infinite; /* Breathing */
+    /* Packages Card */
+#packagesCard {
+    transition: all 0.5s ease;
+}
+
+#packagesCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
+}
+
+#expediaLink {
+    background: #fff;
+    border: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+#expediaLink:hover {
+    background: #f8f9fa;
+    transform: scale(1.05);
+    color: #007bff;
+}
+
+/* Ensure smooth reveal */
+#packagesCard {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+#packagesCard[style*="display: block"] {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%; /* Shine effect */
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 123, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
+}
+
+#searchBtn:disabled {
+    opacity: 0.7;
+}
+
+/* Tables */
+.table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e3f2fd;
+}
+
+.table tr {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    perspective: 1000px; /* 3D flip prep */
+    will-change: transform; /* Perf boost */
+}
+
+.table tr:hover {
+    transform: rotateY(5deg) scale(1.02); /* Subtle 3D flip */
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.2);
+}
+
+/* Hotel Images */
+.hotel-img {
+    width: 60px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+tr:hover .hotel-img {
+    transform: scale(1.1); /* Interactive hover */
+}
+
+/* Autocomplete */
+#citySuggestions {
+    position: absolute; /* Ensure from HTML */
+    z-index: 1000;
+    max-height: 150px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+#citySuggestions li {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    list-style: none; /* Clean list */
+}
+
+#citySuggestions li:hover {
+    background-color: #e3f2fd;
+}
+
+/* Hero Carousel */
+.carousel-item {
+    background-attachment: fixed; /* Subtle parallax */
+    transition: transform 0.3s ease;
+}
+
+.carousel-item img {
+    height: 60vh;
+    object-fit: cover;
+    filter: brightness(0.8); /* Overlay for readability */
+    image-rendering: -webkit-optimize-contrast; /* Anti-blur */
+    image-rendering: crisp-edges;
+}
+
+.carousel-item:hover {
+    transform: scale(1.02); /* Zoom excitement */
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Lively Particles */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(0, 123, 255, 0.05));
+    border-radius: 50%;
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* Confetti Overlay */
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    .card p {
+        font-size: 0.9rem;
+    }
+    .carousel-item img {
+        height: 40vh; /* Shorter on mobile */
+    }
+}
