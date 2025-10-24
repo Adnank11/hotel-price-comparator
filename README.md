@@ -21,7 +21,7 @@ Tools: VS Code, Live Server extension for dev.
 
 API & Keys
 
-RapidAPI Key: Stored in script.js (replace with your own from rapidapi.com—free tier: 500 calls/month).
+RapidAPI Key: Stored in script.js.
 Expedia Links: Direct URLs—no key needed; personalize via search params.
 Rate Limits: Xotelo free tier—fallback to mocks if exceeded.
 
